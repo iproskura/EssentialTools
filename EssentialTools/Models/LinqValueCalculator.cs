@@ -8,10 +8,12 @@ namespace EssentialTools.Models
     public class LinqValueCalculator : IValueCalculator
     {
         private IDiscountHelper _discounter;
+        private static int _counter = 0;
 
         public LinqValueCalculator(IDiscountHelper discountParam)
         {
             _discounter = discountParam;
+            System.Diagnostics.Debug.WriteLine($"Istance {++_counter} created");
         }
 
         public decimal ValueProducts(IEnumerable<Product> products)

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using EssentialTools.Models;
 using Ninject;
+using Ninject.Web.Common;
 
 namespace EssentialTools.Infrastructure
 {
@@ -30,7 +31,7 @@ namespace EssentialTools.Infrastructure
                                    
         private void AddBindings()
         {
-            _kernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            _kernel.Bind<IValueCalculator>().To<LinqValueCalculator>().InRequestScope();
             _kernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>().WithConstructorArgument("discountParam", 50M);
             _kernel.Bind<IDiscountHelper>().To<FlexibleDiscountHelper>().WhenInjectedInto<LinqValueCalculator>();
         }
