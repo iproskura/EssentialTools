@@ -13,7 +13,7 @@ namespace EssentialTools.Models
         public LinqValueCalculator(IDiscountHelper discountParam)
         {
             _discounter = discountParam;
-            System.Diagnostics.Debug.WriteLine($"Istance {++_counter} created");
+            //System.Diagnostics.Debug.WriteLine($"Istance {++_counter} created");
         }
 
         public decimal ValueProducts(IEnumerable<Product> products)
